@@ -1,2 +1,6 @@
-include *.c
-recursive-include *.c
+recursive-include sym_src *
+include package_build_scripts/*
+include sym_linux/pre-build.sh
+exclude ccextractor.i
+exclude build_library
+exclude build_api
