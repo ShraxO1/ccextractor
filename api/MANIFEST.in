@@ -1,6 +1,9 @@
-recursive-include sym_src *
+recursive-include src *
+recursive-exclude src *.Po
+recursive-include wrappers *
+recursive-include extractors *
 include package_build_scripts/*
-include sym_linux/pre-build.sh
+include linux/pre-build.sh
 exclude ccextractor.i
 exclude build_library
 exclude build_api
