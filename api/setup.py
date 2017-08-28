@@ -5,29 +5,18 @@ from distutils.sysconfig import get_python_lib
 import subprocess
 import os
 import sys
-import shutil
 
 class PostDevelopCommand(develop):
     """Post-installation for development mode."""
     def run(self):
-        path = os.path.join(os.getcwd(),"package_build_scripts")
-        files = [os.path.join(path , item) for item in os.listdir(path)]
-        for f in files:
-            shutil.move(f,os.getcwd())
-        subprocess.check_call(['./build_library_package'])
-        files = [item for item in os.listdir(os.getcwd()) if item=='ccextractor.py' or item =='_ccextractor.so']
-
+        subprocess.check_call(['./package_build_scripts/build_library_package'])
         develop.run(self)
 
 class PostInstallCommand(install):
     """Post-installation for installation mode."""
     def run(self):
-        path = os.path.join(os.getcwd(),"package_build_scripts")
-        files = [os.path.join(path , item) for item in os.listdir(path)]
-        for f in files:
-            shutil.move(f,os.getcwd())
-        subprocess.check_call(['./build_library_package'])
-        files = [item for item in os.listdir(os.getcwd()) if item=='ccextractor.py' or item =='_ccextractor.so']
+        print os.getcwd()
+        subprocess.check_call(['./package_build_scripts/build_library_package'])
         install.run(self)
 
 setup(

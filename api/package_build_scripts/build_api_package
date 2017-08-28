@@ -14,7 +14,7 @@ API_WRAPPERS="$(find wrappers/ -name '*.c')"
 API_EXTRACTORS="$(find extractors/ -name '*.c')"
 BLD_SOURCES="src/ccextractor.c ccextractor_wrap.c $SRC_CCX $SRC_GPAC $SRC_ZLIB $SRC_ZVBI $SRC_LIBPNG $SRC_HASH $SRC_PROTOBUF $SRC_UTF8PROC $API_WRAPPERS $API_EXTRACTORS"
 
-linux/pre-build.sh
+package_build_scripts/pre-build.sh
 
 out=$((LC_ALL=C gcc -fPIC -c -DPYTHONAPI $BLD_FLAGS $BLD_INCLUDE $BLD_SOURCES $BLD_LINKER) 2>&1)
 res=$?
