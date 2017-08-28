@@ -24,25 +24,18 @@ if not sys.argv[-1]=='sdist':
         shutil.move(f,os.getcwd())
     subprocess.check_call(['./build_library_package'])
     files = [item for item in os.listdir(os.getcwd()) if item=='ccextractor.py' or item =='_ccextractor.so']
-    #os.mkdir('ccextractor')
-    #egg = [item for item in os.listdir(os.getcwd()) if 'egg.info' in item]
-    #print egg
-    #for f in files:
-    #    shutil.move(f,'ccextractor')
-    #os.listdir('ccextractor')
-
     setup(
        name='ccextractor',
        version = '0.1',
        author      = "Skrill",
        description = "Testing setup script for generating the module",
        packages = ['ccextractor'],
+       #package_dir = {'ccextractor':''},
        package_dir = {'ccextractor':''},
         
        package_data = {'ccextractor':['_ccextractor.so','ccextractor.py']},
     include_package_data=True,
-    #data_files = [('','')],
-    cmdclass={
+       cmdclass={
            'develop': PostDevelopCommand,
            'install':PostInstallCommand,
            },

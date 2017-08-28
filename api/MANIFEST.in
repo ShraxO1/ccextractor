@@ -4,6 +4,7 @@ recursive-include wrappers *
 recursive-include extractors *
 include package_build_scripts/*
 include linux/pre-build.sh
+include __init__.py
 exclude ccextractor.i
 exclude build_library
 exclude build_api
