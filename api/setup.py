@@ -15,7 +15,7 @@ class PostDevelopCommand(develop):
 class PostInstallCommand(install):
     """Post-installation for installation mode."""
     def run(self):
-        print os.getcwd()
+        print (os.getcwd())
         subprocess.check_call(['./package_build_scripts/build_library_package'])
         install.run(self)
 
